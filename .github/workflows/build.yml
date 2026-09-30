@@ -1,0 +1,36 @@
+name: Build and verify
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Audit public files and history
+        run: python scripts/check_public_repo.py
+      - name: Build self-contained Windows app
+        run: dotnet publish src/VerseMirror.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o app
+      - name: Run safety tests
+        shell: pwsh
+        run: |
+          $test = Start-Process './app/UEFN Source Mirror.exe' -ArgumentList '--self-test' -Wait -PassThru
+          Get-Content "$env:LOCALAPPDATA/UEFNSourceMirror/self-test.json"
+          if ($test.ExitCode -ne 0) { throw 'Self-tests failed' }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: uefn-source-mirror-windows-x64
+          path: |
+            app/UEFN Source Mirror.exe
+            app/mirror.ico

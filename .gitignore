@@ -1,0 +1,30 @@
+# Build and local installation outputs
+app/
+app-*/
+artifacts/
+**/bin/
+**/obj/
+*.pdb
+*.user
+.vs/
+
+# Project mirrors and private machine state must never be published
+mirrors/
+private-data/
+local/
+**/settings*.json
+**/verification*.json
+**/self-test.json
+*.log
+*.log.*
+.env
+.env.*
+*.mirror-tmp
+__pycache__/
+
+# UEFN content does not belong in the application repository
+*.verse
+*.uasset
+*.umap
+*.uefnproject
+*.vproject

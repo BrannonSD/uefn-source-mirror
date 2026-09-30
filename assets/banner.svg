@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">UEFN Source Mirror</title>
+  <desc id="desc">Local Verse sources connected to private GitHub context. Automatic sync, readable digests, no binary assets.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0e1725"/><stop offset="1" stop-color="#172a3d"/></linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#6c9bc0" stroke-opacity=".07"/></pattern>
+  </defs>
+  <rect width="1200" height="380" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="380" rx="24" fill="url(#grid)"/>
+  <rect x="62" y="63" width="124" height="124" rx="23" fill="#162a3e" stroke="#79caff" stroke-width="8"/>
+  <rect x="119" y="117" width="124" height="124" rx="23" fill="#152234" stroke="#70e5c2" stroke-width="8"/>
+  <path d="M158 150l-20 28 20 28m45-56l20 28-20 28" fill="none" stroke="#70e5c2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="290" y="106" fill="#70e5c2" font-family="Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="4">LOCAL VERSE · CONNECTED CONTEXT</text>
+  <text x="287" y="172" fill="#edf4fc" font-family="Segoe UI,Arial,sans-serif" font-size="53" font-weight="700">UEFN Source Mirror</text>
+  <text x="290" y="219" fill="#a6bcd2" font-family="Segoe UI,Arial,sans-serif" font-size="23">Your project, ready for the next conversation.</text>
+  <path d="M290 259H1098" stroke="#70e5c2" stroke-opacity=".25"/>
+  <g font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#d5e4f1">
+    <circle cx="296" cy="301" r="4" fill="#70e5c2"/><text x="312" y="307">Automatic sync</text>
+    <circle cx="517" cy="301" r="4" fill="#79caff"/><text x="533" y="307">Readable digests</text>
+    <circle cx="764" cy="301" r="4" fill="#70e5c2"/><text x="780" y="307">No binary assets</text>
+  </g>
+</svg>
