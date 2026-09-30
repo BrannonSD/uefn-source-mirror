@@ -82,6 +82,7 @@ sealed class MainWindow : Form
             TextRenderer.DrawText(e.Graphics, e.SubItem.Text, projects.Font, bounds, e.Item.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis | TextFormatFlags.NoPrefix);
         };
         projects.Columns.Add("Project", 150); projects.Columns.Add("Status", 450); projects.Columns.Add("Last success", 200);
+        projects.ClientSizeChanged += (_, _) => projects.Columns[1].Width = Math.Max(250, projects.ClientSize.Width - projects.Columns[0].Width - projects.Columns[2].Width);
         projects.SelectedIndexChanged += (_, _) => Details(); layout.Controls.Add(projects, 0, 2);
         detail.BackColor = Color.FromArgb(25, 34, 48); layout.Controls.Add(detail, 0, 3);
         var options = new FlowLayoutPanel { Dock = DockStyle.Fill, WrapContents = false, Padding = new Padding(0, 8, 0, 0) };
