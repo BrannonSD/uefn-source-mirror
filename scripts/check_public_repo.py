@@ -68,7 +68,7 @@ def main():
         metadata = git('show', '-s', '--format=%an <%ae>%n%cn <%ce>%n%B', commit)
         check(metadata, 'commit metadata')
         for email in re.findall(rb'<([^>]+)>', metadata):
-            if not email.endswith(b'@users.noreply.github.com'):
+            if not email.endswith(b'@users.noreply.github.com') and email != b'noreply@github.com':
                 failures.append('Commit metadata contains a non-noreply email')
     if failures:
         print('\n'.join(sorted(set(failures))), file=sys.stderr)
