@@ -9,13 +9,13 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
         with:
           dotnet-version: '9.0.x'
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.x'
       - name: Audit public files and history
@@ -28,7 +28,7 @@ jobs:
           $test = Start-Process './app/UEFN Source Mirror.exe' -ArgumentList '--self-test' -Wait -PassThru
           Get-Content "$env:LOCALAPPDATA/UEFNSourceMirror/self-test.json"
           if ($test.ExitCode -ne 0) { throw 'Self-tests failed' }
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: uefn-source-mirror-windows-x64
           path: |

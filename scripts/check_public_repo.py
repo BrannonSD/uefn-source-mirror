@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 APPROVED = {
     '.editorconfig', '.gitattributes', '.gitignore', 'README.md', 'LICENSE',
     'CONTRIBUTING.md', 'make_icon.py', 'assets/banner.svg',
-    '.github/workflows/build.yml', 'scripts/check_public_repo.py',
+    '.github/workflows/build.yml', '.github/dependabot.yml', 'scripts/check_public_repo.py',
     'src/Core.cs', 'src/Program.cs', 'src/SelfTest.cs',
     'src/VerseMirror.csproj', 'src/mirror.ico',
 }
@@ -68,7 +68,7 @@ def main():
         metadata = git('show', '-s', '--format=%an <%ae>%n%cn <%ce>%n%B', commit)
         check(metadata, 'commit metadata')
         for email in re.findall(rb'<([^>]+)>', metadata):
-            if not email.endswith(b'@users.noreply.github.com'):
+            if not email.endswith(b'@users.noreply.github.com') and email != b'noreply@github.com':
                 failures.append('Commit metadata contains a non-noreply email')
     if failures:
         print('\n'.join(sorted(set(failures))), file=sys.stderr)
