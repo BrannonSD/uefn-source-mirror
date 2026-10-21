@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 APPROVED = {
     '.editorconfig', '.gitattributes', '.gitignore', 'README.md', 'LICENSE',
     'CONTRIBUTING.md', 'make_icon.py', 'assets/banner.svg',
-    '.github/workflows/build.yml', 'scripts/check_public_repo.py',
+    '.github/workflows/build.yml', '.github/dependabot.yml', 'scripts/check_public_repo.py',
     'src/Core.cs', 'src/Program.cs', 'src/SelfTest.cs',
     'src/VerseMirror.csproj', 'src/mirror.ico',
 }
